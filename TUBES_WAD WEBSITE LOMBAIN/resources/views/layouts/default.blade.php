@@ -10,20 +10,49 @@
     @include('includes.style')
     @stack('after-style')
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light ">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav mx-auto" style="">
-                <a class="nav-link text-dark @if(Request::is('/')) fw-bold @endif"   href="{{ url('/') }}">Home </a>
-                <a class="nav-link text-dark @if(Request::is('vaccine')) fw-bold @endif" href="{{ url('/vaccine') }}">Vaccine</a>
-                <a class="nav-link text-dark @if(Request::is('patient')) fw-bold @endif" href="{{ url('/patient') }}" >Patient</a>
-            </div>
-        </div>
-    </nav>
+<body style="background-color:#f2f2f2">
 
+<section id="Home">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src=""style="width: auto;">LombaIn</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Kategori
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">SD</a></li>
+                  <li><a class="dropdown-item" href="#">SMP</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">SMA</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/create') }}">Register</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>  
+            <div class="dropdown">
+              <button class="btn btn-outline-success" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Login
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#LOGIN">Admin</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#LOGIN1">Student</a></li>
+              </ul>
+            </div>        
+      </nav>
     <div class="container-fluid">
         <div class="row">
             @stack('before-content')
@@ -35,21 +64,5 @@
     @stack('before-script')
     @include('includes.script')
     @stack('after-script')
-    <footer class="bg-light text-center text-lg-start"style="margin-top:270px;">
-    <div class="text-center p-3">
-    ©2021 Copyright:
-    <a class="text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal4">Muhammad Haikal Qolby_1202190096</a>
-  </div>
-</body>
-<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form method='post' action=''>
-                <div class="modal-body">
-                    <label for="modal" class="form-label">Kesan dan Pesan Praktikum</label>
-                    <hr>
-                    <label for="modal" class="form-label">Kesan        : Praktikum yang sangat mantap dan greget</label>
-                    <br>
-                    <label for="modal" class="form-label">Pesan        : semoga dari praktikum ini para praktikan dapat ilmu tentang pengembangan web </label>
-                </div>
+   
 </html>
